@@ -6,3 +6,7 @@
 #parted -l | grep "dev"| awk -F ":" '{print $1" "$2}' | cut -d " " -f2
 parted -l | grep "dev"| awk -F ":" '{print $1" "$2}' > /tmp/devices
 cat /tmp/devices | cut -d " " -f2
+
+for device in $(cat /tmp/devices | cut -d " " -f2): do
+  badblocks -s -c 10240 /dev/$device >> /var/badblocks.log
+done
