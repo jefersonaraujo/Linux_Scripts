@@ -1,15 +1,19 @@
 #!/bin/bash
 
-
-PASS=`cat /root/pf`
+#Diretorio da Senha ou Senha. 
+PASS=`cat /tmp/pf`
 PORT=22
-DATE=`date +%Y%m%d`
+DATA=`date +%Y%m%d`
+DIRETORIO="/home/mikrotik"
 
-mkdir /home/mikrotik/$DATE
+mkdir $DIRETORIOS/$DATA
 
-for IP in `cat /bin/util/rb-list`; do
+for IP in `cat /tmp/rb-list`; do
 
-        sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no -p $PORT -l backup $IP '/export' > /home/mikrotik/$DATE/bkp-$IP.rsc  
+        sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no -p $PORT -l backup $IP '/export' > $DIRETORIO/$DATA/bkp-$IP.rsc  
 
 done
+
+#Necessario instalar o sshpass
+#
 
