@@ -2,8 +2,12 @@
 
 
 case "$1" in
-start)
-echo "start"
+status)
+echo "status"
+echo "JOBS Run ? " 
+echo "ID="
+cat /usr/local/samba/var/run/samba.pid
+
 
 ;;
 stop)
@@ -22,8 +26,9 @@ samba -i -M single & 2>/dev/null &
 
 ;;
 *)
-echo "Usage: /etc/init.d/samba {start|stop |restart}"
+echo "Usage: /etc/init.d/samba {status|stop |restart}"
 exit 1
 ;;
 esac
 exit 0
+
