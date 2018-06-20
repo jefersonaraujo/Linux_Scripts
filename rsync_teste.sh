@@ -6,11 +6,12 @@ DATA=`date`
 backup="/mnt/backup"
 local=`findmnt $backup | wc -l`
 # Dados do arquivo de backup
-DIRETORIO="/home"
+DIRETORIO="/home/"
 #O local esta montado ?
-if [ ! $m -eq 0 ]; then
+if [ ! $local -eq 0 ]; then
 #caso sim
 #rsync basic
+rsync -ruv $DIRETORIO $backup
 
 exit 1
 else
