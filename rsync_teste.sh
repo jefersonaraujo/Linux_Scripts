@@ -3,15 +3,16 @@
 #Email: jefersonaraujo95@gmail.com
 
 DATA=`date`
-backup="/mnt/backup"
+backup="/BACKUP"
 local=`findmnt $backup | wc -l`
 # Dados do arquivo de backup
-DIRETORIO="/home/"
+DIRETORIO="/tmp/"
 #O local esta montado ?
 if [ ! $local -eq 0 ]; then
 #caso sim
 #rsync basic
 rsync -ruv $DIRETORIO $backup
+echo -e "Realizando backup. - $DATA" >> /var/log/backup.log
 
 exit 1
 else
