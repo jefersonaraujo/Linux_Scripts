@@ -5,6 +5,13 @@
 DATA=`date +%Y_%m_%d`
 m=`findmnt /mnt/pen | wc -l`
 echo $m
+if [ $m -eq 0 ]; then
+echo -e "FALHA"
+exit 1
+else
+echo -e "OK"
+fi
+exit 0
 # Dados do arquivo de backup
 # MAQUINA="NomeDoServidor"
 # ARQUIVO="backup-full-$MAQUINA-$DATA.tar.gz"
