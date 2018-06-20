@@ -6,7 +6,6 @@ DATA=`date +%Y_%m_%d`
 m=`findmnt /mnt/backup | wc -l`
 
 if [ ! $m -eq 0 ]; then
-echo -e "faca"
 # Dados do arquivo de backup
 MAQUINA="NomeDoServidor"
 ARQUIVO="backup-full-$MAQUINA-$DATA.tar.gz"
