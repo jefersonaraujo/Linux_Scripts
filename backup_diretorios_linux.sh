@@ -23,7 +23,7 @@ Remove os arquivos temporarios
 rm -f /tmp/$ARQUIVO
 exit 1
 else
-hora='date'
+hora=`date`
 echo -e "Particao de Backup não montada. - $hora" >> /var/log/backup.log
 fi
 exit 0
