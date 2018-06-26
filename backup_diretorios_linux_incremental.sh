@@ -15,7 +15,7 @@ cd /tmp
 find $DIRETORIOS -mtime -1 -type f -print | \
 tar zcf /tmp/$ARQUIVO -T -
 
-cp /tmp/$ARQUIVO /mnt/backup/ads/
+cp /tmp/$ARQUIVO /mnt/backup
 
 # Remove os arquivos temporarios
 rm -f /tmp/$ARQUIVO
